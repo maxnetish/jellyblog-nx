@@ -28,7 +28,9 @@
       "targets": {
         "build": {
           "executor": "@nrwl/web:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/admin-ui",
             "index": "apps/admin-ui/src/index.html",
@@ -39,7 +41,9 @@
               "apps/admin-ui/src/favicon.ico",
               "apps/admin-ui/src/assets"
             ],
-            "styles": ["apps/admin-ui/src/styles.scss"],
+            "styles": [
+              "apps/admin-ui/src/styles.scss"
+            ],
             "scripts": [],
             "webpackConfig": "@nrwl/react/plugins/webpack"
           },
@@ -71,7 +75,8 @@
         "serve": {
           "executor": "@nrwl/web:dev-server",
           "options": {
-            "buildTarget": "admin-ui:build"
+            "buildTarget": "admin-ui:build",
+            "proxyConfig": "apps/admin-ui/proxy.conf.json"
           },
           "configurations": {
             "production": {
@@ -82,12 +87,16 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/admin-ui/**/*.{ts,tsx,js,jsx}"]
+            "lintFilePatterns": [
+              "apps/admin-ui/**/*.{ts,tsx,js,jsx}"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/admin-ui"],
+          "outputs": [
+            "coverage/apps/admin-ui"
+          ],
           "options": {
             "jestConfig": "apps/admin-ui/jest.config.js",
             "passWithNoTests": true
@@ -116,7 +125,70 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/admin-ui-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/admin-ui-e2e/**/*.{js,ts}"
+            ]
+          }
+        }
+      }
+    },
+    "backend": {
+      "root": "apps/backend",
+      "sourceRoot": "apps/backend/src",
+      "projectType": "application",
+      "prefix": "backend",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/backend",
+            "main": "apps/backend/src/main.ts",
+            "tsConfig": "apps/backend/tsconfig.app.json",
+            "assets": [
+              "apps/backend/src/assets"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/backend/src/environments/environment.ts",
+                  "with": "apps/backend/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "backend:build",
+            "inspect": true,
+            "port": 9229
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/backend/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/backend"
+          ],
+          "options": {
+            "jestConfig": "apps/backend/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }
