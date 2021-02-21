@@ -1,8 +1,4 @@
 {
-  "npmScope": "jellyblog-nx",
-  "affected": {
-    "defaultBase": "master"
-  },
   "implicitDependencies": {
     "workspace.json": "*",
     "package.json": {
@@ -14,18 +10,25 @@
     ".eslintrc.json": "*",
     "nx.json": "*"
   },
+  "affected": {
+    "defaultBase": "master"
+  },
+  "npmScope": "jellyblog-nx",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ]
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
       }
     }
   },
-  "projects": {}
+  "projects": {
+    "admin-ui": {
+      "tags": []
+    },
+    "admin-ui-e2e": {
+      "tags": [],
+      "implicitDependencies": ["admin-ui"]
+    }
+  }
 }
