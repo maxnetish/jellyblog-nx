@@ -18,6 +18,9 @@
   "projects": {
     "admin-ui": { "tags": [] },
     "admin-ui-e2e": { "tags": [], "implicitDependencies": ["admin-ui"] },
-    "backend": { "tags": [] }
+    "backend": { "tags": [] },
+    "auth-user": { "tags": [] },
+    "auth-backend-service": { "tags": [] },
+    "auth-backend-controller": { "tags": [] }
   }
 }

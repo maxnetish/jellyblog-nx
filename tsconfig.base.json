@@ -14,7 +14,15 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@jellyblog-nx/auth/user": ["libs/auth/user/src/index.ts"],
+      "@jellyblog-nx/auth/backend/service": [
+        "libs/auth/backend/service/src/index.ts"
+      ],
+      "@jellyblog-nx/auth/backend/controller": [
+        "libs/auth/backend/controller/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
