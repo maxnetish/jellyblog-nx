@@ -1,9 +1,15 @@
 import { Injectable } from '@nestjs/common';
-import { UserModel } from '@jellyblog-nx/auth/user';
+import { JwtPayloadModel, UserModel } from '@jellyblog-nx/auth/user';
 import { UserRoleEnum } from '../../../../user/src/lib/user-role.enum';
+import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class AuthBackendService {
+
+  constructor(
+      private jwtService: JwtService,
+  ) {
+  }
 
   private initialDefaultAdmin: UserModel = {
     id: '0',
@@ -46,5 +52,15 @@ export class AuthBackendService {
       return foundUserWithPwd[0];
     }
     return null;
+  }
+
+  async login(user: UserModel) {
+    const jwtPayload: JwtPayloadModel = {
+      sub: user.id,
+      role: user.role,
+    };
+    return {
+      access_token: this.jwtService.sign(jwtPayload),
+    };
   }
 }
