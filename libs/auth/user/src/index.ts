@@ -1,6 +1,6 @@
 import { UserModel } from './lib/user.model';
-import { JwtPayloadModel } from './lib/jwt-payload.model';
+import { UserRefreshTokenInfoModel } from './lib/user-refresh-token-info.model';
 
 export * from './lib/auth-user.module';
 export { UserModel };
-export { JwtPayloadModel };
+export { UserRefreshTokenInfoModel };

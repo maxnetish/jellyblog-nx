@@ -1,7 +1,7 @@
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { Injectable } from '@nestjs/common';
-import { JwtPayloadModel } from '@jellyblog-nx/auth/user';
+import { UserModel } from '@jellyblog-nx/auth/user';
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
@@ -13,10 +13,10 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     });
   }
 
-  async validate(jwtPayload: JwtPayloadModel): Promise<JwtPayloadModel> {
+  async validate<T extends UserModel>(jwtPayload: T): Promise<UserModel> {
     return {
-      sub: jwtPayload.sub,
-        role: jwtPayload.role,
+      username: jwtPayload.username,
+      role: jwtPayload.role,
     };
   }
 }
