@@ -21,7 +21,8 @@
       ],
       "@jellyblog-nx/auth/backend/controller": [
         "libs/auth/backend/controller/src/index.ts"
-      ]
+      ],
+      "@jellyblog-nx/ui-shared/form": ["libs/ui-shared/form/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

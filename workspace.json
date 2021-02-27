@@ -1,23 +1,12 @@
 {
   "version": 2,
-  "cli": {
-    "defaultCollection": "@nrwl/react"
-  },
+  "cli": { "defaultCollection": "@nrwl/react" },
   "defaultProject": "admin-ui",
   "generators": {
     "@nrwl/react": {
-      "application": {
-        "style": "scss",
-        "linter": "eslint",
-        "babel": true
-      },
-      "component": {
-        "style": "scss"
-      },
-      "library": {
-        "style": "scss",
-        "linter": "eslint"
-      }
+      "application": { "style": "scss", "linter": "eslint", "babel": true },
+      "component": { "style": "scss" },
+      "library": { "style": "scss", "linter": "eslint" }
     }
   },
   "projects": {
@@ -28,9 +17,7 @@
       "targets": {
         "build": {
           "executor": "@nrwl/web:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/admin-ui",
             "index": "apps/admin-ui/src/index.html",
@@ -41,9 +28,7 @@
               "apps/admin-ui/src/favicon.ico",
               "apps/admin-ui/src/assets"
             ],
-            "styles": [
-              "apps/admin-ui/src/styles.scss"
-            ],
+            "styles": ["apps/admin-ui/src/styles.scss"],
             "scripts": [],
             "webpackConfig": "@nrwl/react/plugins/webpack"
           },
@@ -79,24 +64,18 @@
             "proxyConfig": "apps/admin-ui/proxy.conf.json"
           },
           "configurations": {
-            "production": {
-              "buildTarget": "admin-ui:build:production"
-            }
+            "production": { "buildTarget": "admin-ui:build:production" }
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/admin-ui/**/*.{ts,tsx,js,jsx}"
-            ]
+            "lintFilePatterns": ["apps/admin-ui/**/*.{ts,tsx,js,jsx}"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/admin-ui"
-          ],
+          "outputs": ["coverage/apps/admin-ui"],
           "options": {
             "jestConfig": "apps/admin-ui/jest.config.js",
             "passWithNoTests": true
@@ -117,18 +96,12 @@
             "devServerTarget": "admin-ui:serve"
           },
           "configurations": {
-            "production": {
-              "devServerTarget": "admin-ui:serve:production"
-            }
+            "production": { "devServerTarget": "admin-ui:serve:production" }
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "apps/admin-ui-e2e/**/*.{js,ts}"
-            ]
-          }
+          "options": { "lintFilePatterns": ["apps/admin-ui-e2e/**/*.{js,ts}"] }
         }
       }
     },
@@ -140,16 +113,12 @@
       "targets": {
         "build": {
           "executor": "@nrwl/node:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/backend",
             "main": "apps/backend/src/main.ts",
             "tsConfig": "apps/backend/tsconfig.app.json",
-            "assets": [
-              "apps/backend/src/assets"
-            ]
+            "assets": ["apps/backend/src/assets"]
           },
           "configurations": {
             "production": {
@@ -176,17 +145,11 @@
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "apps/backend/**/*.ts"
-            ]
-          }
+          "options": { "lintFilePatterns": ["apps/backend/**/*.ts"] }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/backend"
-          ],
+          "outputs": ["coverage/apps/backend"],
           "options": {
             "jestConfig": "apps/backend/jest.config.js",
             "passWithNoTests": true
@@ -201,17 +164,11 @@
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/auth/user/**/*.ts"
-            ]
-          }
+          "options": { "lintFilePatterns": ["libs/auth/user/**/*.ts"] }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/auth/user"
-          ],
+          "outputs": ["coverage/libs/auth/user"],
           "options": {
             "jestConfig": "libs/auth/user/jest.config.js",
             "passWithNoTests": true
@@ -219,17 +176,13 @@
         },
         "build": {
           "executor": "@nrwl/node:package",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/libs/auth/user",
             "tsConfig": "libs/auth/user/tsconfig.lib.json",
             "packageJson": "libs/auth/user/package.json",
             "main": "libs/auth/user/src/index.ts",
-            "assets": [
-              "libs/auth/user/*.md"
-            ]
+            "assets": ["libs/auth/user/*.md"]
           }
         }
       }
@@ -242,16 +195,12 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/auth/backend/service/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/auth/backend/service/**/*.ts"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/auth/backend/service"
-          ],
+          "outputs": ["coverage/libs/auth/backend/service"],
           "options": {
             "jestConfig": "libs/auth/backend/service/jest.config.js",
             "passWithNoTests": true
@@ -267,20 +216,70 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/auth/backend/controller/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/auth/backend/controller/**/*.ts"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/auth/backend/controller"
-          ],
+          "outputs": ["coverage/libs/auth/backend/controller"],
           "options": {
             "jestConfig": "libs/auth/backend/controller/jest.config.js",
             "passWithNoTests": true
           }
+        }
+      }
+    },
+    "ui-shared-form": {
+      "root": "libs/ui-shared/form",
+      "sourceRoot": "libs/ui-shared/form/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/ui-shared/form",
+            "tsConfig": "libs/ui-shared/form/tsconfig.lib.json",
+            "project": "libs/ui-shared/form/package.json",
+            "entryFile": "libs/ui-shared/form/src/index.ts",
+            "external": ["react", "react-dom"],
+            "babelConfig": "@nrwl/react/plugins/bundle-babel",
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [{ "glob": "README.md", "input": ".", "output": "." }]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/ui-shared/form/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui-shared/form"],
+          "options": {
+            "jestConfig": "libs/ui-shared/form/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "storybook": {
+          "executor": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/react",
+            "port": 4400,
+            "config": { "configFolder": "libs/ui-shared/form/.storybook" }
+          },
+          "configurations": { "ci": { "quiet": true } }
+        },
+        "build-storybook": {
+          "executor": "@nrwl/storybook:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "uiFramework": "@storybook/react",
+            "outputPath": "dist/storybook/ui-shared-form",
+            "config": { "configFolder": "libs/ui-shared/form/.storybook" }
+          },
+          "configurations": { "ci": { "quiet": true } }
         }
       }
     }

@@ -5,5 +5,6 @@ module.exports = {
     '<rootDir>/libs/auth/user',
     '<rootDir>/libs/auth/backend/service',
     '<rootDir>/libs/auth/backend/controller',
+    '<rootDir>/libs/ui-shared/form',
   ],
 };
